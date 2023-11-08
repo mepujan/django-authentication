@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Authentication System</title>
+    </head>
+
+    <body>
+        {% if request.user.is_authenticated %}
+        <h3>System is Logged In with Username: {{request.user.username}}</h3>
+        <a href="{% url 'authentication:logout'%}">Logout</a>
+        {%else%}
+        <h3>Please Login?</h3>
+        <a href="{% url 'authentication:login'%}">Login From Here</a>
+        <h3>Doesnot Have Account.</h3>
+        <a href="{% url 'authentication:signup'%}">SignUp From Here</a>
+        {%endif%}
+    </body>
+
+</html>
